@@ -104,11 +104,20 @@ namespace NAV
 			}
 
 			//OutputLabel.Text = ChangeText().Result;
-			GetText();
+
+			string[] csv_rows = GetText().Split('\n');
+
+			foreach (var item in csv_rows)
+			{
+				string csv_cell = item.Split(';')[1];
+
+				Debug.WriteLine(csv_cell);
+			}
+
 			// Task.Run(async () => { await DownloadFilesAsync(); });
 		}
 
-		private void GetText()
+		private string GetText()
 		{
 
 			try
@@ -121,11 +130,12 @@ namespace NAV
 					text = reader.ReadToEnd();
 				}
 
-				OutputLabel.Text = text;
+				return text;
 			}
 			catch (Exception e)
 			{
-				OutputLabel.Text = e.Message;
+				Debug.WriteLine(e.Message);
+				return "error";
 			}
 		}
 
