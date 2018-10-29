@@ -9,6 +9,10 @@
 		<Label Text="Welcome to Xamarin.Forms!" 
 			HorizontalOptions="Center"
 			VerticalOptions="Start" />
+		<Button x:Name="TestButton"
+			Clicked="TestButton_Clicked"
+			HorizontalOptions="Center"
+			VerticalOptions="Start" />
 		<Label x:Name="OutputLabel"
 			HorizontalOptions="Center"
 			VerticalOptions="Start" />
